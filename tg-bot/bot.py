@@ -227,7 +227,9 @@ async def post_init(app: Application):
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
-async def main():
+def main():
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("browse", browse_cmd))
@@ -235,12 +237,7 @@ async def main():
     app.add_handler(CallbackQueryHandler(button))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, unknown))
     logger.info("Bot starting…")
-    async with app:
-        await app.start()
-        await app.updater.start_polling(allowed_updates=Update.ALL_TYPES)
-        await app.updater.idle()
-        await app.updater.stop()
-        await app.stop()
+    app.run_polling(allowed_updates=Update.ALL_TYPES, stop_signals=None)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
