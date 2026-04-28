@@ -15,41 +15,41 @@ const MONAD = defineChain({
 });
 
 const CONTRACT_ADDRESS = "0x50808F5De069251aBFB3BDe5F3BE33Fc08c36626";
-const HIDDEN_IMG       = "https://res.cloudinary.com/drmsykh02/image/upload/spellbook/hidden.png";
-const CDN              = "https://res.cloudinary.com/drmsykh02/image/upload/spellbook/";
+const CDN_HIDDEN   = "https://res.cloudinary.com/drmsykh02/raw/upload/spellbook/metadata_hidden/";
+const CDN_REVEALED = "https://res.cloudinary.com/drmsykh02/raw/upload/spellbook/metadata_revealed/";
 
 const COLLECTION = [
-  { tokenId: 0,  symbol: "WMON",     img: CDN + "WMON.png"     },
-  { tokenId: 1,  symbol: "cbBTC",    img: CDN + "cbBTC.png"    },
-  { tokenId: 2,  symbol: "WBTC",     img: CDN + "WBTC.png"     },
-  { tokenId: 3,  symbol: "WETH",     img: CDN + "WETH.png"     },
-  { tokenId: 4,  symbol: "wstETH",   img: CDN + "wstETH.png"   },
-  { tokenId: 5,  symbol: "AUSD",     img: CDN + "AUSD.png"     },
-  { tokenId: 6,  symbol: "USDTO",    img: CDN + "USDTO.png"    },
-  { tokenId: 7,  symbol: "aprMON",   img: CDN + "aprMON.png"   },
-  { tokenId: 8,  symbol: "APR",      img: CDN + "APR.png"      },
-  { tokenId: 9,  symbol: "shMON",    img: CDN + "shMON.png"    },
-  { tokenId: 10, symbol: "CHOG",     img: CDN + "CHOG.png"     },
-  { tokenId: 11, symbol: "BOB",      img: CDN + "BOB.png"      },
-  { tokenId: 12, symbol: "LV",       img: CDN + "LV.png"       },
-  { tokenId: 13, symbol: "DUST",     img: CDN + "DUST.png"     },
-  { tokenId: 14, symbol: "XAUtO",    img: CDN + "XAUtO.png"    },
-  { tokenId: 15, symbol: "Moncat",   img: CDN + "Moncat.png"   },
-  { tokenId: 16, symbol: "CAKE",     img: CDN + "CAKE.png"     },
-  { tokenId: 17, symbol: "moncock",  img: CDN + "moncock.png"  },
-  { tokenId: 18, symbol: "LVUSD",    img: CDN + "LVUSD.png"    },
-  { tokenId: 19, symbol: "shrapm",   img: CDN + "shrapm.png"   },
-  { tokenId: 20, symbol: "USD1",     img: CDN + "USD1.png"     },
-  { tokenId: 21, symbol: "emo",      img: CDN + "emo.png"      },
-  { tokenId: 22, symbol: "MOLANDAK", img: CDN + "MOLANDAK.png" },
-  { tokenId: 23, symbol: "MOUCH",    img: CDN + "MOUCH.png"    },
-  { tokenId: 24, symbol: "gMON",     img: CDN + "gMON.png"     },
-  { tokenId: 25, symbol: "sMON",     img: CDN + "sMON.png"     },
-  { tokenId: 26, symbol: "UNIT",     img: CDN + "UNIT.png"     },
-  { tokenId: 27, symbol: "LVMON",    img: CDN + "LVMON.png"    },
-  { tokenId: 28, symbol: "USDC",     img: CDN + "USDC.png"     },
-  { tokenId: 29, symbol: "GOLD",     img: CDN + "GOLD.png"     },
-  { tokenId: 30, symbol: "MonCat2",  img: CDN + "MonCat2.png"  },
+  { tokenId: 0,  symbol: "WMON"     },
+  { tokenId: 1,  symbol: "cbBTC"    },
+  { tokenId: 2,  symbol: "WBTC"     },
+  { tokenId: 3,  symbol: "WETH"     },
+  { tokenId: 4,  symbol: "wstETH"   },
+  { tokenId: 5,  symbol: "AUSD"     },
+  { tokenId: 6,  symbol: "USDTO"    },
+  { tokenId: 7,  symbol: "aprMON"   },
+  { tokenId: 8,  symbol: "APR"      },
+  { tokenId: 9,  symbol: "shMON"    },
+  { tokenId: 10, symbol: "CHOG"     },
+  { tokenId: 11, symbol: "BOB"      },
+  { tokenId: 12, symbol: "LV"       },
+  { tokenId: 13, symbol: "DUST"     },
+  { tokenId: 14, symbol: "XAUtO"    },
+  { tokenId: 15, symbol: "Moncat"   },
+  { tokenId: 16, symbol: "CAKE"     },
+  { tokenId: 17, symbol: "moncock"  },
+  { tokenId: 18, symbol: "LVUSD"    },
+  { tokenId: 19, symbol: "shrapm"   },
+  { tokenId: 20, symbol: "USD1"     },
+  { tokenId: 21, symbol: "emo"      },
+  { tokenId: 22, symbol: "MOLANDAK" },
+  { tokenId: 23, symbol: "MOUCH"    },
+  { tokenId: 24, symbol: "gMON"     },
+  { tokenId: 25, symbol: "sMON"     },
+  { tokenId: 26, symbol: "UNIT"     },
+  { tokenId: 27, symbol: "LVMON"    },
+  { tokenId: 28, symbol: "USDC"     },
+  { tokenId: 29, symbol: "GOLD"     },
+  { tokenId: 30, symbol: "MonCat2"  },
 ];
 
 const ABI = [
@@ -59,6 +59,17 @@ const ABI = [
 ];
 
 const NEAR_JWT = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIwMjUtMDEtMTItdjEifQ.eyJ2IjoxLCJrZXlfdHlwZSI6ImRpc3RyaWJ1dGlvbl9jaGFubmVsIiwicGFydG5lcl9pZCI6ImNyeXB0b2Nhc2gtbmZ0IiwiaWF0IjoxNzczMDc3MzExLCJleHAiOjE4MDQ2MTMzMTF9.Wi55S8cwVmAXPtOG0ymr7ldX-5CXVygzuanbjAAJHP-Am14_52C6i4cQG5FvjcAorw0KD8k8JD_YX5AM4QKhNqYtU5gsI4-KKe0KavO5_69NowzUKc_ubtjYn85eFjWskzZQvICMqSZkdGOSnMT_hNEePA8qYi_wSov4a4bQh4zIfNA0znEdDIV3rGI_bDM9dgOk0PnJRIpwi_aXOQ8Q4e50IO2UMrZEDtBVmUhK5-Mno3S_iS7tZl4QSui_4_bNCapQolFwUPB9Zqyxay_6rPVEr7j-8Ez5-htwkR5ZYvTb1mJaj3DVPpWPL9QTxhjvhbJ7nKrWpibcWX3AVoXZ6g";
+
+async function fetchMetaImage(symbol, revealed) {
+  try {
+    const url = revealed
+      ? CDN_REVEALED + symbol + ".json"
+      : CDN_HIDDEN   + symbol + ".json";
+    const r = await fetch(url);
+    const j = await r.json();
+    return j.image || null;
+  } catch { return null; }
+}
 
 async function getNearTokens() {
   const r = await fetch("https://1click.chaindefuser.com/v0/tokens", { headers: { Authorization: "Bearer " + NEAR_JWT } });
@@ -105,34 +116,35 @@ function Main() {
 }
 
 function NFTsTab({ account }) {
-  const [states,       setStates]       = useState(() =>
-    COLLECTION.map(n => ({ ...n, revealed: false, owner: CONTRACT_ADDRESS, chainLoaded: false }))
+  const [states, setStates] = useState(() =>
+    COLLECTION.map(n => ({ ...n, revealed: false, owner: CONTRACT_ADDRESS, chainLoaded: false, img: null }))
   );
   const [buying,       setBuying]       = useState(null);
   const [justRevealed, setJustRevealed] = useState({});
   const { mutate: sendTx } = useSendTransaction();
-
   const contract = getContract({ client, chain: MONAD, address: CONTRACT_ADDRESS, abi: ABI });
 
-  async function fetchChainState(tokenId) {
+  async function fetchChainState(tokenId, symbol) {
     try {
       const [revealed, owner] = await Promise.all([
         readContract({ contract, method: "isRevealed", params: [BigInt(tokenId)] }),
         readContract({ contract, method: "ownerOf",    params: [BigInt(tokenId)] }),
       ]);
+      const img = await fetchMetaImage(symbol, revealed);
       setStates(prev => prev.map(n =>
-        n.tokenId === tokenId ? { ...n, revealed, owner, chainLoaded: true } : n
+        n.tokenId === tokenId ? { ...n, revealed, owner, img, chainLoaded: true } : n
       ));
     } catch {
+      const img = await fetchMetaImage(symbol, false);
       setStates(prev => prev.map(n =>
-        n.tokenId === tokenId ? { ...n, chainLoaded: true } : n
+        n.tokenId === tokenId ? { ...n, img, chainLoaded: true } : n
       ));
     }
   }
 
   useEffect(() => {
     COLLECTION.forEach((n, i) => {
-      setTimeout(() => fetchChainState(n.tokenId), i * 50);
+      setTimeout(() => fetchChainState(n.tokenId, n.symbol), i * 80);
     });
   }, []);
 
@@ -149,7 +161,12 @@ function NFTsTab({ account }) {
       sendTx(tx, {
         onSuccess: async () => {
           setJustRevealed(prev => ({ ...prev, [tokenId]: true }));
-          await fetchChainState(tokenId);
+          const sym = COLLECTION.find(c => c.tokenId === tokenId)?.symbol;
+          const img = await fetchMetaImage(sym, true);
+          setStates(prev => prev.map(n =>
+            n.tokenId === tokenId ? { ...n, revealed: true, img } : n
+          ));
+          await fetchChainState(tokenId, sym);
           setBuying(null);
         },
         onError: (e) => { alert("Failed: " + (e.reason || e.message)); setBuying(null); },
@@ -182,24 +199,24 @@ function NFTsTab({ account }) {
 }
 
 function Card({ nft, buying, account, onBuy, isOwned, justRevealed }) {
-  const isBuying  = buying === nft.tokenId;
-  const revealed  = nft.revealed || justRevealed;
-  const [imgErr, setImgErr] = useState(false);
-  const imgSrc = revealed ? (imgErr ? null : nft.img) : HIDDEN_IMG;
+  const isBuying = buying === nft.tokenId;
+  const revealed = nft.revealed || justRevealed;
 
   return (
     <div className={"card" + (revealed ? " card-on" : "") + (justRevealed ? " card-flash" : "")}>
       <div className="card-img-wrap">
-        {imgSrc ? (
-          <img src={imgSrc} alt={nft.symbol} className="card-img" onError={() => setImgErr(true)} />
+        {nft.img ? (
+          <img src={nft.img} alt={nft.symbol} className="card-img" />
         ) : (
           <div className="card-fallback">
-            <span className="fallback-sym">{nft.symbol}</span>
-            <span className="fallback-icon">{revealed ? "✨" : "🔮"}</span>
+            {!nft.chainLoaded
+              ? <span className="fallback-icon">⏳</span>
+              : <><span className="fallback-sym">{nft.symbol}</span><span className="fallback-icon">{revealed ? "✨" : "🔮"}</span></>
+            }
           </div>
         )}
         {revealed && <div className="card-glow" />}
-        {!nft.chainLoaded && <div className="chain-dot" title="Loading chain state…" />}
+        {!nft.chainLoaded && <div className="chain-dot" title="Loading…" />}
       </div>
       <div className="card-info">
         <div className="card-sym">{nft.symbol}</div>
@@ -211,12 +228,7 @@ function Card({ nft, buying, account, onBuy, isOwned, justRevealed }) {
       {isOwned ? (
         <div className="owned-tag">✅ YOURS</div>
       ) : (
-        <button
-          className="buy-btn"
-          onClick={() => onBuy(nft.tokenId)}
-          disabled={isBuying || !account}
-          title={!account ? "Connect wallet to buy" : ""}
-        >
+        <button className="buy-btn" onClick={() => onBuy(nft.tokenId)} disabled={isBuying || !account}>
           {isBuying ? <><span className="spin" />OPENING…</> : "BUY 100 MON"}
         </button>
       )}
@@ -336,56 +348,42 @@ const CSS = `
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:#010408;color:#c0f0c0;font-family:'Share Tech Mono',monospace;min-height:100vh;overflow-x:hidden}
   body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,255,80,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,80,.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
-
   .page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:20px 16px 80px}
-
   .hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;margin-bottom:22px;background:linear-gradient(135deg,rgba(0,255,80,.04) 0%,rgba(155,89,182,.06) 100%);border:1px solid rgba(0,255,80,.2);border-radius:14px;box-shadow:0 0 30px rgba(0,255,80,.06)}
   .brand{display:flex;align-items:center;gap:10px;font-size:0}
   .btxt{font-family:'Orbitron',monospace;font-size:17px;font-weight:900;color:#00ff50;letter-spacing:3px;text-shadow:0 0 18px #00ff5070,0 0 40px #00ff5030}
   .bsub{color:#9b59b6;font-size:13px;text-shadow:0 0 12px #9b59b670}
-
   .tabs{display:flex;gap:8px;margin-bottom:22px}
   .tab-btn{padding:9px 22px;border-radius:9px;border:1px solid rgba(0,255,80,.14);background:transparent;color:#4a8a5a;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;cursor:pointer;transition:all .2s}
   .tab-btn:hover,.tab-on{border-color:#00ff50!important;color:#00ff50!important;background:rgba(0,255,80,.07)!important;box-shadow:0 0 14px rgba(0,255,80,.25),inset 0 0 14px rgba(0,255,80,.04)}
-
   .tab-content{display:flex;flex-direction:column;gap:36px}
   .sec-title{font-family:'Orbitron',monospace;font-size:12px;letter-spacing:4px;color:#00ff50;text-shadow:0 0 10px #00ff5055;margin-bottom:18px}
-
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-
   .card{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#050c08 70%,#0a0814 100%);border:1px solid rgba(0,255,80,.1);transition:transform .25s,box-shadow .25s;position:relative}
   .card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,255,80,.15),0 0 0 1px rgba(0,255,80,.2)}
   .card-on{border-color:rgba(0,255,150,.4);box-shadow:0 0 22px rgba(0,255,100,.14)}
   .card-flash{animation:cflash 1.2s ease}
   @keyframes cflash{0%{box-shadow:0 0 0 #00ff50}40%{box-shadow:0 0 80px #00ff50,0 0 120px #9b59b650}100%{box-shadow:0 0 22px rgba(0,255,100,.14)}}
-
   .card-img-wrap{position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:#080f0b}
   .card-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
   .card:hover .card-img{transform:scale(1.07)}
-
   .card-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#050f08,#0a1020)}
   .fallback-sym{font-family:'Orbitron',monospace;font-size:13px;font-weight:900;color:#00ff50;letter-spacing:2px;text-shadow:0 0 10px #00ff5080;text-align:center;padding:0 8px;word-break:break-all}
   .fallback-icon{font-size:40px;opacity:.6}
-
   .card-glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(0,255,100,.08) 0%,rgba(155,89,182,.04) 60%,transparent 100%);pointer-events:none}
-
   .chain-dot{position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#00ff5060;animation:cdot 1.2s ease-in-out infinite}
   @keyframes cdot{0%,100%{opacity:.2}50%{opacity:1}}
-
   .card-info{padding:11px 13px;flex:1;display:flex;flex-direction:column;gap:3px}
   .card-sym{font-family:'Orbitron',monospace;font-size:12px;font-weight:700;color:#00ff50;letter-spacing:1px;text-shadow:0 0 7px #00ff5050}
   .card-id{font-size:9px;color:#2a4a3a;letter-spacing:1px}
   .card-badge{font-size:8px;letter-spacing:1.5px;padding:3px 7px;border-radius:20px;width:fit-content;margin-top:4px;background:rgba(0,255,80,.06);color:#3a6a4a;border:1px solid #1a3a2a}
   .badge-on{background:rgba(0,255,100,.12)!important;color:#00ff88!important;border-color:rgba(0,255,100,.3)!important;box-shadow:0 0 8px rgba(0,255,100,.2)}
-
   .buy-btn{width:100%;padding:15px 10px;background:linear-gradient(135deg,#000800,#001500);border:2px solid #00ff50;border-top:none;color:#00ff50;font-family:'Orbitron',monospace;font-size:12px;font-weight:900;letter-spacing:2px;cursor:pointer;transition:all .2s;text-shadow:0 0 10px #00ff50;display:flex;align-items:center;justify-content:center;gap:7px}
   .buy-btn:hover:not(:disabled){background:linear-gradient(135deg,#001800,#003000);box-shadow:0 0 30px rgba(0,255,80,.5),inset 0 0 20px rgba(0,255,80,.05);transform:scale(1.01)}
   .buy-btn:disabled{opacity:.3;cursor:not-allowed;text-shadow:none;border-color:#1a3a1a;color:#1a5a1a;box-shadow:none}
   .spin{width:11px;height:11px;border:2px solid #00ff5040;border-top-color:#00ff50;border-radius:50%;animation:sp .7s linear infinite;display:inline-block}
   @keyframes sp{to{transform:rotate(360deg)}}
-
   .owned-tag{text-align:center;padding:14px;color:#00ff88;font-size:11px;letter-spacing:2px;background:rgba(0,255,100,.06);border-top:1px solid rgba(0,255,100,.14)}
-
   .bridge-wrap{max-width:460px;margin:0 auto;background:linear-gradient(160deg,#050c08 70%,#0a0814 100%);border:1px solid rgba(0,255,80,.18);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 0 40px rgba(0,255,80,.06)}
   .bridge-desc{font-size:11px;color:#3a6a4a;margin-bottom:6px}
   .flabel{font-size:10px;letter-spacing:2px;color:#00aa40;display:block;margin-bottom:3px}
@@ -404,16 +402,13 @@ const CSS = `
   .qval{color:#00ff88;font-weight:700;text-shadow:0 0 6px #00ff8840}
   .copy-btn{width:100%;padding:9px;margin-top:8px;background:rgba(0,255,80,.06);border:1px solid rgba(0,255,80,.2);border-radius:7px;color:#00ff50;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:1px;cursor:pointer;transition:all .2s}
   .copy-btn:hover{background:rgba(0,255,80,.14);box-shadow:0 0 10px rgba(0,255,80,.2)}
-
   .footer{margin-top:52px;padding-top:24px;border-top:1px solid rgba(0,255,80,.07)}
   .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-bottom:18px}
   .flink{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:22px;border:1.5px solid;font-family:'Share Tech Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1.5px;text-decoration:none;transition:transform .18s,box-shadow .18s}
   .footer-copy{text-align:center;font-size:8px;color:#1a2a1a;letter-spacing:2px;word-break:break-all;padding:0 16px}
-
   ::-webkit-scrollbar{width:5px}
   ::-webkit-scrollbar-track{background:#010408}
   ::-webkit-scrollbar-thumb{background:#0a1a14;border-radius:3px}
-
   @media(max-width:600px){
     .hdr{flex-direction:column;gap:12px;text-align:center}
     .btxt{font-size:14px}
