@@ -1,0 +1,1 @@
+import{l as n,H as r}from"./index-D1FZVMsm.js";async function u(t,o){const e=await t({method:"eth_getTransactionCount",params:[o.address,o.blockNumber?n(o.blockNumber):o.blockTag||"pending"]});return r(e)}export{u as eth_getTransactionCount};
