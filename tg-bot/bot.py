@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes, MessageHandler, filters
@@ -6,11 +7,15 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 SITE_URL  = os.environ.get("SITE_URL", "https://0654c680.neon-nft.pages.dev")
 CONTRACT  = "0x50808F5De069251aBFB3BDe5F3BE33Fc08c36626"
 CHAIN_ID  = 143
 PRICE_MON = 100
+
+if not BOT_TOKEN:
+    logger.error("BOT_TOKEN environment variable is not set. Exiting.")
+    sys.exit(1)
 
 COLLECTION = [
     (0,"WMON"),(1,"cbBTC"),(2,"WBTC"),(3,"WETH"),(4,"wstETH"),
