@@ -1,6 +1,8 @@
 import os
 import sys
 import asyncio
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import logging
 from datetime import datetime, timezone
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
@@ -227,6 +229,24 @@ async def post_init(app: Application):
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
+# ── Health server ─────────────────────────────────────────────────────────────
+
+class _Health(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"OK")
+    def log_message(self, *a): pass
+
+def start_health_server():
+    port = int(os.environ.get("PORT", 3000))
+    server = HTTPServer(("0.0.0.0", port), _Health)
+    t = threading.Thread(target=server.serve_forever, daemon=True)
+    t.start()
+    logger.info(f"Health server on :{port}")
+
+# ── Main ───────────────────────────────────────────────────────────────────────
+
 def main():
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
@@ -236,6 +256,7 @@ def main():
     app.add_handler(CommandHandler("help", help_cmd))
     app.add_handler(CallbackQueryHandler(button))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, unknown))
+    start_health_server()
     logger.info("Bot starting…")
     app.run_polling(allowed_updates=Update.ALL_TYPES, stop_signals=None)
 
