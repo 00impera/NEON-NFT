@@ -176,7 +176,7 @@ function NFTsTab({ account }) {
 
   const owned     = account ? states.filter(n => n.owner?.toLowerCase() === account.address?.toLowerCase()) : [];
   const available = states.filter(n => n.owner?.toLowerCase() === CONTRACT_ADDRESS.toLowerCase());
-  const showList  = available.length > 0 ? available : states;
+  const showList = states;
 
   return (
     <div className="tab-content">
